@@ -1,10 +1,13 @@
 require 'steam-api'
 require 'active_support/duration'
 require 'pattern_string_generator'
+require 'dotenv'
 
 require 'sinatra/base'
 
 require_relative 'helpers'
+
+Dotenv.load
 
 class SteamApp < Sinatra::Base
   set :root, __dir__
@@ -16,10 +19,10 @@ class SteamApp < Sinatra::Base
   end
 
   get '/suggest_game' do
-    vanityurl = gets.chomp
+    vanityurl = params['name']
 
     # Steam API key
-    Steam.apikey = '11456C84FE362A159F2CEC5F7C2F3435'
+    Steam.apikey = ENV['STEAM_API_KEY']
 
     # Get users ID by vanityurl
     steam_id = Steam::User.vanity_to_steamid(vanityurl)
@@ -32,7 +35,7 @@ class SteamApp < Sinatra::Base
 
     # Advise user to play some game
     # Show some information about advised game
-    @game_appid = random_game['appid']
+    @game_id = random_game['appid']
     @game_img_url = random_game['img_logo_url']
     @game_title = random_game['name']
     @game_playtime = random_game['playtime_forever']
