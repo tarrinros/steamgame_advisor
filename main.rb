@@ -1,8 +1,3 @@
-require 'steam-api'
-require 'pry'
-require 'active_support/duration'
-require 'pattern_string_generator'
-
 require_relative 'helpers'
 
 # Get users vanityurl
