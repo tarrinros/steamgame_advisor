@@ -9,7 +9,11 @@
 </head>
 <body>
 <div class="wrapper">
-  <h1>Enter players Steam nickname:</h1>
+  <h1>Enter players Steam id:</h1>
+
+  <div>https://steamcommunity.com/id/YOUR_ID/</div>
+  <div>*your account shouldn't be private</div>
+
   <div>
     <form action="/suggest_game" method="get">
       <input type="text" name="name" value="<%= params[:name] %>">
