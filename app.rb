@@ -1,5 +1,9 @@
-require 'sinatra'
+require 'sinatra/base'
 
-get '/' do
-  erb :index
+class SteamApp < Sinatra::Base
+  set :root, File __dir__
+
+  get '/' do
+    erb :index
+  end
 end
