@@ -28,7 +28,7 @@ app_id = random_game['appid']
 img_url = random_game['img_logo_url']
 game_title = random_game['name']
 
-puts advise_game(game_title)
+puts suggest_game(game_title)
 puts "Game image: #{game_header(app_id, img_url)}"
 puts "Playtime: #{total_playtime(random_game['playtime_forever'])}"
 

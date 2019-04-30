@@ -4,11 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="/style.css">
+  <title>Random Steam Game</title>
 </head>
 <body>
-<div>
-  HELLO!
+<div class="wrapper">
+  <h1>Enter players Steam nickname:</h1>
+  <div>
+    <form action="/suggest_game" method="get">
+      <input type="text" name="name" value="<%= params[:name] %>">
+      <input type="submit" value="Hit me!">
+    </form>
+    <% unless @error.nil? %>
+      <div class="error"><%= @error %></div>
+    <% end %>
+  </div>
 </div>
 </body>
 </html>

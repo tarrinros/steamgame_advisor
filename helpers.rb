@@ -14,7 +14,7 @@ def total_playtime(playtime)
   played_time.inspect
 end
 
-def advise_game(game_title)
+def suggest_game(game_title)
   pattern = "(Let's play|Have a(n awesome| nice) experience with|For example): \"#{game_title}\"".as_pattern
   pattern.to_s
 end
